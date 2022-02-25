@@ -19,6 +19,7 @@ public class ParseCodeSizeCliCommand implements Runnable {
         PicocliRunner.run(ParseCodeSizeCliCommand.class, args);
     }
     // testing comment
+    // testing comment 2
 
     public void run() {
         // business logic here

@@ -23,19 +23,18 @@ public class Main {
     }
 
     public void showSubFiles(File file) {
+        // String fname = "C:\\Users\\Gary-Home\\repos\\parse-code-size-cli\\file-io-java";
+        String fname = "C:\\Users\\Gary-Home\\IdeaProjects\\eformss-backend\\src\\main\\java\\gov\\edb\\eformss";
 
         if (file.isDirectory()) {
 
             File[] subFiles = file.listFiles();
 
-            System.out.println(file.getName());
-
             for (int i = 0; i < subFiles.length; i++) {
-                System.out.print("    ");
                 showSubFiles(subFiles[i]);
             }
         } else {
-            System.out.print(file.getName() + "    ");
+            System.out.print(file.getPath().replace(fname, "").replace(file.getName(), "") + "    " + file.getName() + "    ");
             histogram(file);
             System.out.println();
         }
@@ -89,8 +88,8 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-        // String fname = "C:\\Users\\user\\repos\\file-io-java";
-        String fname = "C:\\Users\\user\\IdeaProjects\\eformss-backend\\src\\main\\java\\gov\\edb\\eformss";
+        // String fname = "C:\\Users\\Gary-Home\\repos\\parse-code-size-cli\\file-io-java";
+        String fname = "C:\\Users\\Gary-Home\\IdeaProjects\\eformss-backend\\src\\main\\java\\gov\\edb\\eformss";
         File file = new File(fname);
         main.countSubFiles(file);
         System.out.println("max: " + main.maxLines);

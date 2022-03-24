@@ -15,18 +15,16 @@ class ParseCodeSizeCliCommandSpec extends Specification {
 
     @Shared @AutoCleanup ApplicationContext ctx = ApplicationContext.run(Environment.CLI, Environment.TEST)
 
-    void "test parse-code-size-cli with parse command"() {
+    void "test parse-code-size-cli with command line option"() {
         given:
         ByteArrayOutputStream baos = new ByteArrayOutputStream()
-        PrintStream out = System.out
         System.setOut(new PrintStream(baos))
 
-        String[] args = ["parse", "-p", "C:\\users"] as String[]
+        String[] args = ['-v'] as String[]
         PicocliRunner.run(ParseCodeSizeCliCommand, ctx, args)
-        out.println baos.toString()
 
         expect:
-        baos.toString().contains('parse command is running...')
+        baos.toString().contains('Hi!')
     }
 }
 

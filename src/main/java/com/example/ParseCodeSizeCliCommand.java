@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.parse.ParseCommand;
 import io.micronaut.configuration.picocli.PicocliRunner;
 import io.micronaut.context.ApplicationContext;
 
@@ -9,7 +10,7 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 @Command(name = "parse-code-size-cli", description = "...",
-        mixinStandardHelpOptions = true)
+        mixinStandardHelpOptions = true, subcommands = {ParseCommand.class})
 public class ParseCodeSizeCliCommand implements Runnable {
 
     @Option(names = {"-v", "--verbose"}, description = "...")
